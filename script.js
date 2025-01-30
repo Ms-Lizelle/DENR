@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 
+// Your Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCvI3y5mQ4TWOhbnHH6OSB3GzeNcFpe7LM",
   authDomain: "cenro-3ffc4.firebaseapp.com",
@@ -12,7 +13,13 @@ const firebaseConfig = {
   measurementId: "G-CQSD8JRXMT"
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
+// Log Firebase initialization after the app is initialized
+console.log('Firebase initialized:', app);
+
+// Initialize Analytics (optional for tracking events)
 const analytics = getAnalytics(app);
 
 // Your app logic here
