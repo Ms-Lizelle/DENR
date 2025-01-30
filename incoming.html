@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seedlings Incoming</title>
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="in.css">
 </head>
 <body>
     <!-- Top Navigation Bar -->
@@ -37,31 +37,35 @@
     <h1 class="page-title">SEEDLINGS INCOMING</h1>
     <hr>
 
-    <!-- Form Section -->
-    <div class="form-container">
-        <h2>SEEDLINGS INCOMING</h2>
-        <form>
-            <label>Transaction#:</label>
-            <input type="text" required>
-
-            <label>Source:</label>
-            <input type="text" required>
-
-            <label>Quantity:</label>
-            <input type="number" required>
-
-            <label>Location:</label>
-            <input type="text" required>
-
-            <label>Seedling Name:</label>
-            <input type="text" required>
-
-            <label>Date:</label>
-            <input type="date" required>
-
-            <button type="submit">SUBMIT</button>
-        </form>
-    </div>
+    <form>
+    
+        <div class="form-row">
+            <label for="source">Source:</label>
+            <input type="text" id="source" required>
+        </div>
+    
+        <div class="form-row">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" required>
+        </div>
+    
+        <div class="form-row">
+            <label for="location">Location:</label>
+            <input type="text" id="location" required>
+        </div>
+    
+        <div class="form-row">
+            <label for="seedling">Seedling Name:</label>
+            <input type="text" id="seedling" required>
+        </div>
+    
+        <div class="form-row">
+            <label for="date">Date:</label>
+            <input type="date" id="date" required>
+        </div>
+    
+        <button type="submit">SUBMIT</button>
+    </form>
 
     <script>
         // Function to update the time
