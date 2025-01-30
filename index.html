@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="styles/home.css">
 </head>
 <body>
     <!-- Top Navigation Bar -->
     <div class="nav-bar">
-        <img src="logo1.jpg" alt="Logo" class="nav-logo">
+        <img src="pictures/logo1.jpg" alt="Logo" class="nav-logo">
         <div id="time-date">TIME: 00:00 AM DATE: 00/00/0000</div>
     </div>
 
@@ -19,18 +19,18 @@
         <div class="hamburger-menu" id="hamburger">☰</div>
 
         <div class="profile-section">
-            <img src="user1.png" alt="Profile Picture">
+            <img src="pictures/user1.png" alt="Profile Picture">
             <p>Hello User</p>
         </div>
         <ul class="nav-links">
             <li><a href="index.html">🏠 Home</a></li>
-            <li><a href="incoming.html">📥 Incoming</a></li>
+            <li><a href="templates/incoming.html">📥 Incoming</a></li>
             <li><a href="#">📤 Outgoing</a></li>
             <li><a href="#">🌱 Seedlings</a></li>
             <li><a href="#">📑 Records</a></li>
             <li><a href="#">⏳ History</a></li>
             <li><a href="#">⚙️ Settings</a></li>
-            <li><a href="login.html">⚙️ Logout</a></li>
+            <li><a href="templates/login.html">⚙️ Logout</a></li>
         </ul>
     </div>
 
@@ -40,13 +40,13 @@
     <!-- Content Section -->
     <div class="index-container">
         <div class="index-content">
-            <img src="logo.png" alt="Logo">
+            <img src="pictures/logo.png" alt="Logo">
             <div class="index-text">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
         </div>
         <div class="index-content">
-            <img src="logo.png" alt="Image 2">
+            <img src="pictures/logo.png" alt="Image 2">
             <div class="index-text">
                 <p>Another section of text beside an image. You can modify this content as needed.</p>
             </div>
@@ -55,7 +55,7 @@
 
     <!-- Continue Button -->
     <div class="button-container">
-        <button>CONTINUE</button>
+        <button onclick="window.location.href='templates/login.html';">LOG IN</button>
     </div>
 
     <script>
