@@ -5,12 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Firebase SDK v11 -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
-        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-analytics.js";
-    </script>
 </head>
 <body>
     <div class="login-container">
@@ -18,25 +12,18 @@
         <input type="email" id="username" placeholder="USERNAME" required>
         <input type="password" id="password" placeholder="PASSWORD" required>
         <p class="forgot-password">Forgot password? <a href="#">Contact Admin</a></p>
-        <button class="login-button" onclick="login()">LOG IN</button>
+        <button class="login-button" id="loginButton" type="button">LOG IN</button>
         <p id="error-message"></p>
         <p id="loading-message" style="display:none;">Logging in...</p>
     </div>
 
+    <!-- Firebase and Login Script -->
     <script type="module">
-        const firebaseConfig = {
-            apiKey: "AIzaSyCvI3y5mQ4TWOhbnHH6OSB3GzeNcFpe7LM",
-            authDomain: "cenro-3ffc4.firebaseapp.com",
-            projectId: "cenro-3ffc4",
-            storageBucket: "cenro-3ffc4.firebasestorage.app",
-            messagingSenderId: "763027479113",
-            appId: "1:763027479113:web:e7ff66db1267c091c77d98",
-            measurementId: "G-CQSD8JRXMT"
-        };
+        import { auth } from './firebaseConfig.js';
+        import { signInWithEmailAndPassword } from 'firebase/auth';
 
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const analytics = getAnalytics(app);
+        // Add event listener to the login button
+        document.getElementById('loginButton').addEventListener('click', login);
 
         function login() {
             const username = document.getElementById('username').value;
@@ -44,7 +31,7 @@
 
             // Check if the fields are filled
             if (!username || !password) {
-                document.getElementById('error-message').textContent = "Please fill in all fields.";
+                document.getElementById('error-message').textContent = "Please enter both username and password.";
                 return;
             }
 
@@ -86,6 +73,17 @@
                     document.getElementById('loading-message').style.display = 'none';
                 });
         }
+
+        // Clear error message when the user starts typing again
+        document.getElementById('username').addEventListener('input', () => {
+            document.getElementById('error-message').textContent = '';
+        });
+        document.getElementById('password').addEventListener('input', () => {
+            document.getElementById('error-message').textContent = '';
+        });
     </script>
+
+    <!-- Optional: You can include a build file if you are using a bundler -->
+    <!-- <script type="module" src="dist/main.js"></script> -->
 </body>
 </html>
