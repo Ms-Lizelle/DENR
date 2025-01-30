@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
 </head>
 <body>
     <div class="login-container">
@@ -16,28 +19,38 @@
         <p id="error-message"></p>
     </div>
 
-   <script>
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+    <script>
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCOXtfjmfFhy-Ya6fUCyj8d23D0F1pgL7o",
+            authDomain: "cenroit.firebaseapp.com",
+            projectId: "cenroit",
+            storageBucket: "cenroit.firebasestorage.app",
+            messagingSenderId: "880361469888",
+            appId: "1:880361469888:web:603fe8dfa389d3b6d6ba25",
+            measurementId: "G-52XKVXFHLS"
+        };
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyCOXtfjmfFhy-Ya6fUCyj8d23D0F1pgL7o",
-    authDomain: "cenroit.firebaseapp.com",
-    projectId: "cenroit",
-    storageBucket: "cenroit.firebasestorage.app",
-    messagingSenderId: "880361469888",
-    appId: "1:880361469888:web:603fe8dfa389d3b6d6ba25",
-    measurementId: "G-52XKVXFHLS"
-  };
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
+        // Login function
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Use Firebase Authentication to sign in
+            auth.signInWithEmailAndPassword(username, password)
+                .then((userCredential) => {
+                    // Redirect to a different page or show success message
+                    window.location.href = 'dashboard.html'; // Replace with your actual page
+                })
+                .catch((error) => {
+                    const errorMessage = error.message;
+                    document.getElementById('error-message').textContent = `Error: ${errorMessage}`;
+                });
+        }
+    </script>
 </body>
 </html>
