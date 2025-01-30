@@ -1,10 +1,8 @@
 /* General Styles */
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
     padding: 0;
     background-color: #f4f4f4;
-    display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
@@ -118,100 +116,152 @@ body {
     left: 270px;
 }
 
-/* Page Title */
-.page-title {
+/* Welcome Section */
+.welcome-section {
+    background: #2E6B2D;
+    color: white;
     text-align: center;
-    font-size: 32px;
-    margin-top: 100px;
-    color: #2c3e50;
-}
-
-/* Form Styling */
-form {
-    margin: 30px auto;
-    width: 80%;
-    max-width: 600px;
+    font-size: 24px;
+    font-weight: bold;
     padding: 20px;
-    border-radius: 8px;
-    background-color:transparent;
+    width: auto;
+    margin-top: 100px;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 10px;
 }
 
-form .form-row {
+/* Content Section */
+.index-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.index-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 80%;
+    max-width: 1000px;
+    margin-bottom: 30px;
+}
+
+.index-content img {
+    max-width: 180px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.index-text {
+    text-align: justify;
+    max-width: 50%;
+}
+
+/* Continue Button */
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.button-container button {
+    background: #2c3e50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Form Container */
+.form-container {
+    background: white;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 2rem auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 100px;
+}
+
+.form-container h1 {
+    text-align: center;
+    color: #3e643d;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-container hr {
+    border: none;
+    border-top: 1px solid #3e643d;
+    margin: 1rem 0;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container form .form-group {
+    margin-bottom: 2.3rem;
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
 }
 
-form label {
-    font-size: 16px;
-    margin-right: 10px; /* Space between label and input */
+.form-container form label {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-right: 1rem;
+    display: block;
     width: 150px;
 }
 
-form .form-row input {
-    width: calc(100% - 160px); /* Adjusted to fill remaining space */
-    padding: 10px;
-    border: 1px solid #ddd;
+.form-container form input {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
     border-radius: 4px;
+    font-size: 1rem;
 }
 
-/* Submit Button */
-form button {
+.form-container form input[type="date"] {
+    padding: 0.5rem;
+}
+
+.form-container form button {
     background-color: #4CAF50;
     color: white;
-    padding: 12px;
-    font-size: 16px;
     border: none;
-    border-radius: 5px;
+    padding: 0.7rem;
+    font-size: 1rem;
+    border-radius: 4px;
     cursor: pointer;
-    width: 40%; /* This can be kept or adjusted as needed */
-    display: block;
-    margin: 20px auto; /* This will center the button */
+    text-transform: uppercase;
+    transition: background-color 0.3s;
 }
 
-form button:hover {
+.form-container form button:hover {
     background-color: #45a049;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .nav-bar {
-        flex-direction: column;
-        align-items: center;
-        padding: 10px;
-    }
+.form-container form .calendar-icon {
+    position: relative;
+}
 
-    .sidebar {
-        left: -100%;
-        width: 100%;
-        transition: left 0.3s ease-in-out;
-    }
+.form-container form input[type="date"] {
+    display: inline-block;
+    width: calc(100% - 2.5rem);
+}
 
-    .sidebar.open {
-        left: 0;
-    }
-
-    .hamburger-menu {
-        left: 20px;
-        top: 20px;
-    }
-
-    .form-row {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    form label {
-        width: 100%;
-        margin-bottom: 5px;
-    }
-
-    form .form-row input {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
-    form button {
-        width: 100%;
-    }
+.form-container form input[type="date"] + .calendar-icon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #3e643d;
+    font-size: 1.2rem;
 }
