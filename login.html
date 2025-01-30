@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
     <!-- Firebase SDK v11 -->
     <script type="module">
-        // Import the necessary Firebase functions
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
         import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-analytics.js";
@@ -21,10 +20,10 @@
         <p class="forgot-password">Forgot password? <a href="#">Contact Admin</a></p>
         <button class="login-button" onclick="login()">LOG IN</button>
         <p id="error-message"></p>
+        <p id="loading-message" style="display:none;">Logging in...</p>
     </div>
 
     <script type="module">
-        // Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyCvI3y5mQ4TWOhbnHH6OSB3GzeNcFpe7LM",
             authDomain: "cenro-3ffc4.firebaseapp.com",
@@ -35,12 +34,10 @@
             measurementId: "G-CQSD8JRXMT"
         };
 
-        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const analytics = getAnalytics(app);
 
-        // Login function
         function login() {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
@@ -51,6 +48,16 @@
                 return;
             }
 
+            // Basic email format validation
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(username)) {
+                document.getElementById('error-message').textContent = "Please enter a valid email address.";
+                return;
+            }
+
+            // Show loading message
+            document.getElementById('loading-message').style.display = 'block';
+
             // Use Firebase Authentication to sign in
             signInWithEmailAndPassword(auth, username, password)
                 .then((userCredential) => {
@@ -58,7 +65,6 @@
                     window.location.href = 'dashboard.html'; // Change to your actual dashboard page
                 })
                 .catch((error) => {
-                    // Handle error and display message
                     let errorMessage;
                     switch (error.code) {
                         case 'auth/invalid-email':
@@ -74,6 +80,10 @@
                             errorMessage = `Error: ${error.message}`;
                     }
                     document.getElementById('error-message').textContent = errorMessage;
+                })
+                .finally(() => {
+                    // Hide loading message
+                    document.getElementById('loading-message').style.display = 'none';
                 });
         }
     </script>
