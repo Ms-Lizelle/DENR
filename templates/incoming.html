@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SEEDLINGS INCOMING</title>
     <link rel="stylesheet" href="../styles/in.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 <body>
      <!-- Top Navigation Bar -->
@@ -25,12 +26,12 @@
         <ul class="nav-links">
             <li><a href="../index.html">🏠 Home</a></li>
             <li><a href="incoming.html">📥 Incoming</a></li>
-            <li><a href="#">📤 Outgoing</a></li>
-            <li><a href="#">🌱 Seedlings</a></li>
+            <li><a href="outgoing.html">📤 Outgoing</a></li>
+            <li><a href="seedreg.html">🌱 Seedlings</a></li>
             <li><a href="#">📑 Records</a></li>
-            <li><a href="#">⏳ History</a></li>
+            <li><a href="history.html">⏳ History</a></li>
             <li><a href="#">⚙️ Settings</a></li>
-            <li><a href="../templates/login.html">⚙️ Logout</a></li>
+            <li><a href="login.html">⚙️ Logout</a></li>
         </ul>
     </div>
 
@@ -63,6 +64,8 @@
         </form>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+
     <script>
         // Hamburger menu toggle
         const hamburger = document.getElementById('hamburger');
@@ -80,11 +83,29 @@
         }
         setInterval(updateTimeDate, 1000);
 
-        // Form submission
+        // Form submission with SweetAlert
         document.getElementById('seedlings-form').addEventListener('submit', function (e) {
             e.preventDefault();
-            alert('Form submitted!');
+            Swal.fire({
+                icon: 'success',
+                title: 'Form Submitted!',
+             
+                confirmButtonText: 'Ok',
+                customClass: {
+                    confirmButton: 'green-button' // Add custom class
+                }
+            });
+
+            this.reset();
         });
+
+        // Style the SweetAlert button
+        document.styleSheets[0].insertRule(`
+            .swal2-confirm.green-button {
+                background-color: #4CAF50 !important; /* Green color */
+                border-color: #45a049 !important;
+            }
+        `, 0);
     </script>
 </body>
 </html>

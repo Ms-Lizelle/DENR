@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seedlings Outgoing</title>
+  <link rel="stylesheet" href="../styles/outgoing.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+<body>
+  <!-- Top Navigation Bar -->
+  <div class="nav-bar">
+    <img src="../pictures/logo1.jpg" alt="Logo" class="nav-logo">
+    <div id="time-date">TIME: 00:00 AM DATE: 00/00/0000</div>
+  </div>
+
+  <!-- Sidebar Navigation -->
+  <div class="sidebar" id="sidebar">
+    <div class="hamburger-menu" id="hamburger">☰</div>
+    <div class="profile-section">
+      <img src="../pictures/user1.png" alt="Profile Picture">
+      <p>Hello User</p>
+    </div>
+    <ul class="nav-links">
+      <li><a href="../index.html">🏠 Home</a></li>
+      <li><a href="incoming.html">📥 Incoming</a></li>
+      <li><a href="outgoing.html">📤 Outgoing</a></li>
+      <li><a href="seedreg.html">🌱 Seedlings</a></li>
+      <li><a href="#">📑 Records</a></li>
+      <li><a href="history.html">⏳ History</a></li>
+      <li><a href="#">⚙️ Settings</a></li>
+      <li><a href="login.html"> Logout</a></li>
+      
+
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main" id="main">
+    <div class="form-container">
+      <h2>SEEDLINGS OUTGOING</h2>
+      <form>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="seedling">Seedling Name:</label>
+            <select id="seedling" name="seedling">
+              <option value="">narra</option>
+              <option value="">mahogany</option>
+              <option value="">lomboy</option>
+              <option value="">lobby</option>
+              <option value="">kupang</option>
+              <option value="">labana</option>
+              <option value="">tagilomboy</option>
+              <option value="">acacia</option>
+              <option value="">sangil</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="source">Source:</label>
+            <input type="text" id="source" name="source" placeholder="" required>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" placeholder="" required>
+          </div>
+          <div class="form-group">
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" placeholder="" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" placeholder="" required>
+          </div>
+          <div class="form-group">
+            <label for="request">Request Name:</label>
+            <input type="text" id="request" name="request" placeholder="" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="status">Status:</label>
+            <select id="status" name="status" required>
+              <option value="">Healthy</option>
+              <option value="">Dormant</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="submit-container">
+            <button type="submit" class="submit-btn">SUBMIT</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+
+  <script>
+    function updateTime() {
+      const now = new Date();
+      let hours = now.getHours();
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const day = String(now.getDate()).padStart(2, '0');
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const year = now.getFullYear();
+      let period = "AM";
+
+      if (hours >= 12) {
+        period = "PM";
+        if (hours > 12) hours -= 12;
+      } else if (hours === 0) {
+        hours = 12;
+      }
+
+      const timeDateText = `TIME: ${hours}:${minutes} ${period} DATE: ${day}/${month}/${year}`;
+      document.getElementById('time-date').textContent = timeDateText;
+    }
+
+    setInterval(updateTime, 1000);
+    updateTime();
+
+    // Sidebar Toggle
+    document.getElementById("hamburger").addEventListener("click", function() {
+      let sidebar = document.getElementById("sidebar");
+      sidebar.classList.toggle("open");
+    });
+
+    // Form submission with SweetAlert
+    document.getElementById('seedlings-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            Swal.fire({
+                icon: 'success',
+                title: 'Form Submitted!',
+             
+                confirmButtonText: 'Ok',
+                customClass: {
+                    confirmButton: 'green-button' // Add custom class
+                }
+            });
+
+            this.reset();
+        });
+
+        // Style the SweetAlert button
+        document.styleSheets[0].insertRule(`
+            .swal2-confirm.green-button {
+                background-color: #4CAF50 !important; /* Green color */
+                border-color: #45a049 !important;
+            }
+        `, 0);
+  </script>
+</body>
+</html>
