@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seedlings Incoming</title>
-    <link rel="stylesheet" href="home.css">
+    <title>SEEDLINGS INCOMING</title>
+    <link rel="stylesheet" href="in.css">
 </head>
 <body>
-    <!-- Top Navigation Bar -->
-    <div class="nav-bar">
+     <!-- Top Navigation Bar -->
+     <div class="nav-bar">
         <img src="logo1.jpg" alt="Logo" class="nav-logo">
         <div id="time-date">TIME: 00:00 AM DATE: 00/00/0000</div>
     </div>
@@ -30,68 +30,60 @@
             <li><a href="#">📑 Records</a></li>
             <li><a href="#">⏳ History</a></li>
             <li><a href="#">⚙️ Settings</a></li>
+            <li><a href="login.html">⚙️ Logout</a></li>
         </ul>
     </div>
 
-    <!-- Page Title -->
-    <h1 class="page-title">SEEDLINGS INCOMING</h1>
-    <hr>
 
-    <!-- Form Section -->
     <div class="form-container">
-        <h2>SEEDLINGS INCOMING</h2>
-        <form>
-            <label>Transaction#:</label>
-            <input type="text" required>
-
-            <label>Source:</label>
-            <input type="text" required>
-
-            <label>Quantity:</label>
-            <input type="number" required>
-
-            <label>Location:</label>
-            <input type="text" required>
-
-            <label>Seedling Name:</label>
-            <input type="text" required>
-
-            <label>Date:</label>
-            <input type="date" required>
-
-            <button type="submit">SUBMIT</button>
+        <h1>SEEDLINGS INCOMING</h1>
+        <hr>
+        <form id="seedlings-form">
+            <div class="form-group">
+            <label for="Source">Source:</label>
+            <input type="text" id="Source" name="Source" required>
+        </div>
+        <div class="form-group">
+            <label for="Quantity">Quantity:</label>
+            <input type="number" id="Quantity" name="Quantity" required>
+        </div>
+        <div class="form-group">
+            <label for="Location">Location:</label>
+            <input type="text" id="Location" name="Location" required>
+        </div>
+        <div class="form-group">
+            <label for="SeedlingName">Seedling Name:</label>
+            <input type="text" id="SeedlingName" name="SeedlingName" required>
+        </div>
+        <div class="form-group calendar-icon">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+        </div>
+        <button type="submit">SUBMIT</button>
         </form>
     </div>
 
     <script>
-        // Function to update the time
-        function updateTime() {
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const sidebar = document.getElementById('sidebar');
+        hamburger.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+
+        // Time and date update
+        function updateTimeDate() {
             const now = new Date();
-            let hours = now.getHours();
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const day = String(now.getDate()).padStart(2, '0');
-            const month = String(now.getMonth() + 1).padStart(2, '0');
-            const year = now.getFullYear();
-            let period = "AM";
-
-            if (hours >= 12) {
-                period = "PM";
-                if (hours > 12) hours -= 12;
-            } else if (hours === 0) {
-                hours = 12;
-            }
-
-            const timeDateText = `TIME: ${hours}:${minutes} ${period} DATE: ${day}/${month}/${year}`;
-            document.getElementById('time-date').textContent = timeDateText;
+            const time = now.toLocaleTimeString();
+            const date = now.toLocaleDateString();
+            document.getElementById('time-date').textContent = `TIME: ${time} DATE: ${date}`;
         }
+        setInterval(updateTimeDate, 1000);
 
-        setInterval(updateTime, 1000);
-        updateTime();
-
-        // Sidebar Toggle
-        document.getElementById("hamburger").addEventListener("click", function() {
-            let sidebar = document.getElementById("sidebar");
-            sidebar.classList.toggle("open");
+        // Form submission
+        document.getElementById('seedlings-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Form submitted!');
         });
     </script>
 </body>
