@@ -6,8 +6,11 @@
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
     <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script type="module">
+        // Import Firebase SDK
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+    </script>
 </head>
 <body>
     <div class="login-container">
@@ -19,7 +22,7 @@
         <p id="error-message"></p>
     </div>
 
-    <script>
+    <script type="module">
         // Your web app's Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyCOXtfjmfFhy-Ya6fUCyj8d23D0F1pgL7o",
@@ -32,8 +35,8 @@
         };
 
         // Initialize Firebase
-        const app = firebase.initializeApp(firebaseConfig);
-        const auth = firebase.auth();
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
 
         // Login function
         function login() {
@@ -41,7 +44,7 @@
             const password = document.getElementById('password').value;
 
             // Use Firebase Authentication to sign in
-            auth.signInWithEmailAndPassword(username, password)
+            signInWithEmailAndPassword(auth, username, password)
                 .then((userCredential) => {
                     // Redirect to a different page or show success message
                     window.location.href = 'dashboard.html'; // Replace with your actual page
