@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REGISTER A SEEDLING</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <style>
         /* General Styles */
         body {
@@ -189,9 +190,9 @@
             background: white;
             padding: 2rem;
             max-width: 600px;
-            margin: 2rem auto;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-top: 80px;
+            margin: 5rem auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 100px;
         }
 
         .form-container h1 {
@@ -223,7 +224,7 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             font-size: 1rem;
             font-weight: bold;
             margin-right: 1rem; /* Space between label and input */
-            display: block;
+            display: inline-block; /* Inline display */
             width: 150px; /* Adjust the width of the label */
         }
 
@@ -287,7 +288,7 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             <p>Hello User</p>
         </div>
         <ul class="nav-links">
-            <li><a href="#">🏠 Home</a></li>
+            <li><a href="index.html">🏠 Home</a></li>
             <li><a href="#">📥 Incoming</a></li>
             <li><a href="#">📤 Outgoing</a></li>
             <li><a href="#">🌱 Seedlings</a></li>
@@ -302,25 +303,30 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         <hr>
         <form id="seedlings-form">
             <div class="form-group">
-                <label for="SDID">SDID#</label>
-                <input type="text" id="SDID" name="SDID" required>
+                <label for="Name">Seed Name</label>
+                <input type="text" id="Name" name="Name" required pattern="[A-Za-z\s]+" title="Only letters and spaces allowed">
             </div>
+
             <div class="form-group">
                 <label for="Quantity">Quantity</label>
-                <input type="text" id="Quantity" name="Quantity" required>
+                <input type="number" id="Quantity" name="Quantity" required min="1" title="Only numbers allowed">
             </div>
+
             <div class="form-group">
                 <label for="Incharge">Incharge</label>
-                <input type="text" id="Incharge" name="Incharge" required>
+                <input type="text" id="Incharge" name="Incharge" required pattern="[A-Za-z\s]+" title="Only letters and spaces allowed">
             </div>
+
             <div class="form-group calendar-icon">
                 <label for="date">Date</label>
                 <input type="date" id="date" name="date" required>
             </div>
+
             <button type="submit">Submit</button>
         </form>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
     <script>
         // Hamburger menu toggle
         const hamburger = document.getElementById('hamburger');
@@ -338,11 +344,27 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         setInterval(updateTimeDate, 1000);
 
-        // Form submission
+        // Form submission with SweetAlert
         document.getElementById('seedlings-form').addEventListener('submit', function (e) {
             e.preventDefault();
-            alert('Form submitted!');
+            Swal.fire({
+                icon: 'success',
+                title: 'Form Submitted!',
+             
+                confirmButtonText: 'Ok',
+                customClass: {
+                    confirmButton: 'green-button' // Add custom class
+                }
+            });
         });
+
+        // Style the SweetAlert button
+        document.styleSheets[0].insertRule(`
+            .swal2-confirm.green-button {
+                background-color: #4CAF50 !important; /* Green color */
+                border-color: #45a049 !important;
+            }
+        `, 0);
     </script>
 </body>
 </html>
