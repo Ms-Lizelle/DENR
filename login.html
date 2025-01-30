@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container">
+        <img src="logo.png" alt="Logo" class="logo">
+        <input type="text" id="username" placeholder="USERNAME">
+        <input type="password" id="password" placeholder="PASSWORD">
+        <p class="forgot-password">Forgot password? <a href="#">Contact Admin</a></p>
+        <button class="login-button" onclick="login()">LOG IN</button>
+        <p id="error-message"></p>
+    </div>
+
+    <script>
+        function login() {
+            const users = {
+                "admin": "admin123"
+            };
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const errorMessage = document.getElementById("error-message");
+
+            if (users[username] && users[username] === password) {
+                alert("Login successful!");
+                window.location.href = "index.html"; // Redirect to dashboard or homepage
+            } else {
+                errorMessage.textContent = "Invalid username or password!";
+                errorMessage.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>

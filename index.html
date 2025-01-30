@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <div class="nav-bar">
+        <img src="logo1.jpg" alt="Logo" class="nav-logo">
+        <div id="time-date">TIME: 00:00 AM DATE: 00/00/0000</div>
+    </div>
+
+    <!-- Hamburger Menu -->
+    <div class="hamburger-menu" id="hamburger">☰</div>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar" id="sidebar">
+        <div class="profile-section">
+            <img src="user1.png"Profile Picture">
+            <p>Hello User</p>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">🏠 Home</a></li>
+            <li><a href="#">📥 Incoming</a></li>
+            <li><a href="#">📤 Outgoing</a></li>
+            <li><a href="#">🌱 Seedlings</a></li>
+            <li><a href="#">📑 Records</a></li>
+            <li><a href="#">⏳ History</a></li>
+            <li><a href="#">⚙️ Settings</a></li>
+        </ul>
+    </div>
+
+    <!-- Welcome Section -->
+    <div class="welcome-section">WELCOME TO THE WORLD</div>
+
+    <!-- Content Section -->
+    <div class="index-container">
+        <div class="index-content">
+            <img src="logo.png" alt="Logo">
+            <div class="index-text">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+        </div>
+        <div class="index-content">
+            <img src="logo.png" alt="Image 2">
+            <div class="index-text">
+                <p>Another section of text beside an image. You can modify this content as needed.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Continue Button -->
+    <div class="button-container">
+        <button>CONTINUE</button>
+    </div>
+
+    <script>
+        // Function to update the time
+        function updateTime() {
+            const now = new Date();
+            let hours = now.getHours();
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const year = now.getFullYear();
+            let period = "AM";
+
+            if (hours >= 12) {
+                period = "PM";
+                if (hours > 12) hours -= 12;
+            } else if (hours === 0) {
+                hours = 12;
+            }
+
+            const timeDateText = `TIME: ${hours}:${minutes} ${period} DATE: ${day}/${month}/${year}`;
+            document.getElementById('time-date').textContent = timeDateText;
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime();
+
+        // Sidebar Toggle
+        document.getElementById("hamburger").addEventListener("click", function() {
+            let sidebar = document.getElementById("sidebar");
+            let hamburger = document.getElementById("hamburger");
+
+            sidebar.classList.toggle("open");
+
+            // Move hamburger icon when sidebar is open
+            if (sidebar.classList.contains("open")) {
+                hamburger.style.left = "270px";
+            } else {
+                hamburger.style.left = "20px";
+            }
+        });
+    </script>
+</body>
+</html>
