@@ -5,53 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Firebase SDK -->
+    <!-- Firebase SDK v11 -->
     <script type="module">
-        // Import Firebase SDK
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+        // Import the necessary Firebase functions
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-analytics.js";
     </script>
 </head>
 <body>
     <div class="login-container">
         <img src="logo.png" alt="Logo" class="logo">
-        <input type="text" id="username" placeholder="USERNAME">
-        <input type="password" id="password" placeholder="PASSWORD">
+        <input type="email" id="username" placeholder="USERNAME" required>
+        <input type="password" id="password" placeholder="PASSWORD" required>
         <p class="forgot-password">Forgot password? <a href="#">Contact Admin</a></p>
         <button class="login-button" onclick="login()">LOG IN</button>
         <p id="error-message"></p>
     </div>
 
     <script type="module">
-        // Your web app's Firebase configuration
+        // Firebase configuration
         const firebaseConfig = {
-            apiKey: "AIzaSyCOXtfjmfFhy-Ya6fUCyj8d23D0F1pgL7o",
-            authDomain: "cenroit.firebaseapp.com",
-            projectId: "cenroit",
-            storageBucket: "cenroit.firebasestorage.app",
-            messagingSenderId: "880361469888",
-            appId: "1:880361469888:web:603fe8dfa389d3b6d6ba25",
-            measurementId: "G-52XKVXFHLS"
+            apiKey: "AIzaSyCvI3y5mQ4TWOhbnHH6OSB3GzeNcFpe7LM",
+            authDomain: "cenro-3ffc4.firebaseapp.com",
+            projectId: "cenro-3ffc4",
+            storageBucket: "cenro-3ffc4.firebasestorage.app",
+            messagingSenderId: "763027479113",
+            appId: "1:763027479113:web:e7ff66db1267c091c77d98",
+            measurementId: "G-CQSD8JRXMT"
         };
 
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
+        const analytics = getAnalytics(app);
 
         // Login function
         function login() {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
+            // Check if the fields are filled
+            if (!username || !password) {
+                document.getElementById('error-message').textContent = "Please fill in all fields.";
+                return;
+            }
+
             // Use Firebase Authentication to sign in
             signInWithEmailAndPassword(auth, username, password)
                 .then((userCredential) => {
-                    // Redirect to a different page or show success message
-                    window.location.href = 'dashboard.html'; // Replace with your actual page
+                    // Redirect to dashboard or success page
+                    window.location.href = 'dashboard.html'; // Change to your actual dashboard page
                 })
                 .catch((error) => {
-                    const errorMessage = error.message;
-                    document.getElementById('error-message').textContent = `Error: ${errorMessage}`;
+                    // Handle error and display message
+                    let errorMessage;
+                    switch (error.code) {
+                        case 'auth/invalid-email':
+                            errorMessage = "The email address is badly formatted.";
+                            break;
+                        case 'auth/user-not-found':
+                            errorMessage = "No user found with this email.";
+                            break;
+                        case 'auth/wrong-password':
+                            errorMessage = "Incorrect password.";
+                            break;
+                        default:
+                            errorMessage = `Error: ${error.message}`;
+                    }
+                    document.getElementById('error-message').textContent = errorMessage;
                 });
         }
     </script>
