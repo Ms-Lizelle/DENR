@@ -1,38 +1,26 @@
-/* Apply full-page background image */
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: Arial, sans-serif;
-}
-
-/* Centered login form */
-.login-container {
-    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    width: 270px;
-}
-
-/* Logo */
-.logo {
-    width: 50px;
-    margin-bottom: 20px;
-}
-body {
+/* Reset default margin and padding */
+* {
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* Full-page video background */
+html, body {
+    height: 100%;
+}
+
+body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    font-family: Arial, sans-serif;
     position: relative;
+    background: black; /* Fallback color */
+    overflow: hidden; /* Remove if scrolling is needed */
 }
 
+/* Background video */
 .bg-video {
     position: absolute;
     top: 0;
@@ -43,25 +31,35 @@ body {
     z-index: -1;
 }
 
+/* Login form container */
 .login-container {
     position: relative;
     z-index: 1;
-    background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
-    padding: 20px;
+    background: rgba(0, 0, 0, 0.7); /* Darker semi-transparent background */
+    padding: 25px;
     border-radius: 10px;
     text-align: center;
     color: white;
+    width: 280px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Logo */
+.logo {
+    width: 60px;
+    margin-bottom: 20px;
 }
 
 /* Input fields */
 input {
     width: 100%;
     padding: 12px;
-    margin: 12px 0;
+    margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 14px;
     box-sizing: border-box;
+    background: white;
 }
 
 input:focus {
@@ -72,15 +70,20 @@ input:focus {
 /* Forgot password text */
 .forgot-password {
     font-size: 14px;
+    margin-top: 5px;
 }
 
 .forgot-password a {
-    color: #234d20;
+    color: #4CAF50;
     text-decoration: none;
     font-weight: bold;
 }
 
-/* Log in button */
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+/* Login button */
 .login-button {
     background-color: #234d20;
     color: white;
@@ -90,6 +93,8 @@ input:focus {
     border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
+    margin-top: 10px;
+    transition: background 0.3s ease;
 }
 
 .login-button:hover {
