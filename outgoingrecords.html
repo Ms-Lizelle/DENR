@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="outgoingrecords.css">
+    <link rel="stylesheet" href="outgoingrecords.css">
+</head>
+
+
+<body>
+    <!-- Top Navigation Bar -->
+    <div class="nav-bar">
+        <img src="logo1.jpg" alt="Logo" class="nav-logo">
+        <div id="time-date">TIME: 00:00 AM DATE: 00/00/0000</div>
+    </div>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar" id="sidebar">
+        <!-- Hamburger Menu Inside Sidebar -->
+        <div class="hamburger-menu" id="hamburger">☰</div>
+
+        <div class="profile-section">
+            <img src="user1.png" alt="Profile Picture">
+            <p>Hello User</p>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Home</a></li>
+            <li><a href="incoming.html">📥 Incoming</a></li>
+            <li><a href="#">📤 Outgoing</a></li>
+            <li><a href="#">🌱 Seedlings</a></li>
+            <li><a href="#">📑 Records</a></li>
+            <li><a href="#">⏳ History</a></li>
+            <li><a href="#">⚙️ Settings</a></li>
+            <li><a href="login.html">⚙️ Logout</a></li>
+        </ul>
+    </div>
+
+
+
+
+
+
+    <div class="seedling-records-container">
+        <h2>SEEDLING RECORDS OUTGOING</h2>
+        <div class="search-export-bar">
+    <div class="search-wrapper">
+        <input type="text" id="search-bar" placeholder="Search here..." />
+        <i class="fa fa-search search-icon"></i> <!-- Search icon -->
+    </div>
+    <button id="export-btn">
+        <i class="fa fa-download"></i> Export <!-- Export icon -->
+    </button>
+</div>
+
+        <table class="records-table">
+            <thead>
+                <tr>
+                    <th>Transact#</th>
+                    <th>SDID</th>
+                    <th>Seedling Name</th>
+                    <th>Quantity</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Source</th>
+                    <th>Location</th>
+                    <th>Request Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+           
+                
+        </table>
+    </div>
+
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const sidebar = document.getElementById('sidebar');
+        hamburger.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+
+        // Time and date update
+        function updateTimeDate() {
+            const now = new Date();
+            const time = now.toLocaleTimeString();
+            const date = now.toLocaleDateString();
+            document.getElementById('time-date').textContent = `TIME: ${time} DATE: ${date}`;
+        }
+        setInterval(updateTimeDate, 1000);
+
+        // Form submission
+        document.getElementById('seedlings-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Form submitted!');
+        });
+    </script>
+</body>
+</html>

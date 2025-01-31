@@ -1,0 +1,295 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Navigation Bar */
+.nav-bar {
+    background: #234d20;
+    color: white;
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: margin-left 0.3s ease; /* Add transition for smooth opening of the sidebar */
+}
+
+.nav-logo {
+    width: 40px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.nav-bar #time-date {
+    font-size: 18px;
+    margin-left: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 50px;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100vh;
+    background: #234d20;
+    padding-top: 70px;
+    transition: left 0.3s ease-in-out;
+    z-index: 999; /* Ensure the sidebar is above other elements */
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+/* Profile Section */
+.profile-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-section img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.profile-section p {
+    color: white;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+/* Sidebar Links */
+.nav-links {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-links li {
+    padding: 15px;
+    text-align: left;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    display: block;
+    transition: background 0.3s;
+}
+
+.nav-links li a:hover {
+    background: #1a3d15;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+    position: fixed;
+    top: 100px;  /* Adjusted top position to ensure it's not overlapping the logo */
+    left: 20px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 1050;
+    background: #234d20;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: left 0.3s ease-in-out;
+}
+
+/* Main Content */
+.main {
+    padding: 120px 20px 20px; /* Adjust padding to give space for fixed navbar */
+    transition: margin-left 0.3s ease;
+    margin-left: 0;
+}
+
+/* Container for the Seedling Records Section */
+.seedling-records-container {
+    padding: 30px;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    border: 2px solid #234d20;
+    border-radius: 10px;
+    width: 85%;
+    margin: 140px auto; /* Adjust margin to give space for the sidebar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Heading */
+.seedling-records-container h2 {
+    text-align: center;
+    color: #234d20;
+    margin-bottom: 30px;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Search and Export Bar */
+.search-export-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#search-bar {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#export-btn {
+    padding: 10px 25px;
+    background-color: #234d20;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#export-btn:hover {
+    background-color: #1a3c14;
+}
+
+/* Table Styling */
+.records-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.records-table th, .records-table td {
+    padding: 12px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    text-align: center;
+}
+
+.records-table th {
+    background-color: #234d20;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.records-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.records-table tr:hover {
+    background-color: #e0e0e0;
+}
+
+/* Action Button */
+.action-btn {
+    padding: 8px 12px;
+    background-color: #2e8b57;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background-color 0.3s ease;
+}
+
+.action-btn:hover {
+    background-color: #1a3c14;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Adjusting container form */
+    .seedling-records-container {
+        width: 95%; /* Make the container almost full width */
+        margin: 120px 10px; /* Reduced margin on the sides */
+    }
+
+    /* Adjust search bar to fit smaller screens */
+    .search-export-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #search-bar {
+        width: 100%; /* Make the search bar full width */
+        margin-bottom: 10px; /* Add space between the search bar and export button */
+    }
+
+    #export-btn {
+        width: 100%; /* Make the export button full width */
+    }
+
+    /* Sidebar */
+    .sidebar {
+        width: 200px; /* Make the sidebar slightly smaller on smaller screens */
+    }
+
+    /* Hamburger Menu */
+    .hamburger-menu {
+        top: 80px; /* Adjust hamburger menu for smaller screens */
+        left: 15px;
+    }
+
+    /* Table Adjustments */
+    .records-table th, .records-table td {
+        padding: 10px;
+        font-size: 12px; /* Slightly smaller font size for the table */
+    }
+}
+
+@media (max-width: 480px) {
+    /* For very small screens like phones */
+    .nav-bar {
+        font-size: 16px; /* Adjust font size in the navbar */
+        padding: 15px 20px; /* Adjust padding for smaller screens */
+    }
+
+    .seedling-records-container {
+        width: 100%; /* Full width on smaller screens */
+        margin: 120px 0; /* Remove side margin */
+    }
+
+    /* Further adjustments for small screens */
+    .search-export-bar {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #search-bar {
+        width: 100%;
+    }
+
+    #export-btn {
+        width: 100%;
+    }
+
+    .hamburger-menu {
+        top: 70px; /* Adjust for very small screens */
+        left: 10px;
+    }
+}
