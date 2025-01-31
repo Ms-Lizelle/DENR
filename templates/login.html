@@ -10,7 +10,9 @@
 <body>
     <!-- Background Video -->
     <video autoplay loop muted playsinline class="bg-video">
-        <source src="pictures/denr.MOV" type="video/mp4">
+        <source src="pictures/denr.mp4" type="video/mp4">
+        <source src="pictures/denr.webm" type="video/webm"> <!-- Fallback in case mp4 isn't supported -->
+        <source src="pictures/denr.ogv" type="video/ogg"> <!-- Another fallback for older browsers -->
         Your browser does not support the video tag.
     </video>
 
@@ -22,10 +24,6 @@
         <p class="forgot-password">Forgot password? <a href="forgot.html">Click here</a></p>
         <button class="login-button" id="loginButton" type="button">LOG IN</button>
     </div>
-
-
-
-
 
     <script type="module">
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js';
@@ -51,36 +49,36 @@
             const password = document.getElementById('password').value.trim();
 
             if (!username || !password) {
-                swal.fire("Missing Fields", "Please enter both username and password.", "warning");
+                Swal.fire("Missing Fields", "Please enter both username and password.", "warning");
                 return;
             }
 
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailPattern.test(username)) {
-                swal.fire("Invalid Email", "Please enter a valid email address.", "error");
+                Swal.fire("Invalid Email", "Please enter a valid email address.", "error");
                 return;
             }
 
             // Show loading alert
-            swal.fire({
+            Swal.fire({
                 title: "Logging in...",
                 text: "Please wait while we authenticate your credentials.",
                 allowOutsideClick: false,
                 didOpen: () => {
-                    swal.showLoading();
+                    Swal.showLoading();
                 }
             });
 
             signInWithEmailAndPassword(auth, username, password)
                 .then(() => {
-                    swal.fire({
+                    Swal.fire({
                         title: "Login Successful",
                         text: "Redirecting to dashboard...",
                         icon: "success",
                         timer: 2000,
                         showConfirmButton: false
                     }).then(() => {
-                        window.location.href = 'index.html';
+                        window.location.href = '../index.html';
                     });
                 })
                 .catch((error) => {
@@ -98,14 +96,13 @@
                         default:
                             errorMessage = error.message;
                     }
-                    swal.fire("Login Failed", errorMessage, "error");
+                    Swal.fire("Login Failed", errorMessage, "error");
                 });
         }
 
         // Clear alerts when the user starts typing
-        document.getElementById('username').addEventListener('input', () => swal.close());
-        document.getElementById('password').addEventListener('input', () => swal.close());
-        
+        document.getElementById('username').addEventListener('input', () => Swal.close());
+        document.getElementById('password').addEventListener('input', () => Swal.close());
     </script>
 </body>
 </html>
