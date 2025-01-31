@@ -4,7 +4,6 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: url('../pictures/bg.jpg') no-repeat center center/cover; /* Replace 'background.jpg' with your actual image file */
     font-family: Arial, sans-serif;
 }
 
