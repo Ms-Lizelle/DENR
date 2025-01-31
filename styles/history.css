@@ -115,22 +115,7 @@ body {
 .sidebar.open + .hamburger-menu {
     left: 270px;
 }
-<<<<<<< HEAD
-
-/* Main Content */
-.transaction-container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 120px auto 20px auto; /* Adjust margin for fixed navbar */
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-=======
 /* Custom styles for the Transaction History page */
->>>>>>> e64375298856807928ac26e6a9ebe001b88f6314
 
 .transaction-container h1 {
     text-align: center;
