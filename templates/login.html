@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../styles/login.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- SweetAlert Library -->
+</head>
+<body>
+    <!-- Background Video -->
+    <video autoplay loop muted playsinline class="bg-video">
+        <source src="../pictures/denr.mp4" type="video/mp4">
+    </video>
+
+    <!-- Login Form -->
+    <div class="login-container">
+        <img src="../pictures/logo.png" alt="Logo" class="logo">
+        <input type="email" id="username" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <p class="forgot-password">Forgot password? <a href="../templates/forgot.html">Click here</a></p>
+        <button class="login-button" id="loginButton" type="button">LOG IN</button>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js';
+        import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js';
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCvI3y5mQ4TWOhbnHH6OSB3GzeNcFpe7LM",
+            authDomain: "cenro-3ffc4.firebaseapp.com",
+            projectId: "cenro-3ffc4",
+            storageBucket: "cenro-3ffc4.firebasestorage.app",
+            messagingSenderId: "763027479113",
+            appId: "1:763027479113:web:e7ff66db1267c091c77d98",
+            measurementId: "G-CQSD8JRXMT"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        document.getElementById('loginButton').addEventListener('click', login);
+
+        function login() {
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            if (!username || !password) {
+                Swal.fire("Missing Fields", "Please enter both username and password.", "warning");
+                return;
+            }
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(username)) {
+                Swal.fire("Invalid Email", "Please enter a valid email address.", "error");
+                return;
+            }
+
+            // Show loading alert
+            Swal.fire({
+                title: "Logging in...",
+                text: "Please wait while we authenticate your credentials.",
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+
+            signInWithEmailAndPassword(auth, username, password)
+                .then(() => {
+                    Swal.fire({
+                        title: "Login Successful",
+                        text: "Redirecting to dashboard...",
+                        icon: "success",
+                        timer: 2000,
+                        showConfirmButton: false
+                    }).then(() => {
+                        window.location.href = '../index.html';
+                    });
+                })
+                .catch((error) => {
+                    let errorMessage;
+                    switch (error.code) {
+                        case 'auth/invalid-email':
+                            errorMessage = "The email address is badly formatted.";
+                            break;
+                        case 'auth/user-not-found':
+                            errorMessage = "No user found with this email.";
+                            break;
+                        case 'auth/wrong-password':
+                            errorMessage = "Incorrect password.";
+                            break;
+                        default:
+                            errorMessage = error.message;
+                    }
+                    Swal.fire("Login Failed", errorMessage, "error");
+                });
+        }
+
+        // Clear alerts when the user starts typing
+        document.getElementById('username').addEventListener('input', () => Swal.close());
+        document.getElementById('password').addEventListener('input', () => Swal.close());
+    </script>
+</body>
+</html>

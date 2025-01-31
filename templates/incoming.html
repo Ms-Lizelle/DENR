@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEEDLINGS INCOMING</title>
+    <link rel="stylesheet" href="../styles/in.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+<body>
+     <!-- Top Navigation Bar -->
+     <div class="nav-bar">
+        <img src="../pictures/logo1.jpg" alt="Logo" class="nav-logo">
+        <div id="time-date">TIME: 00:00 AM DATE: 00/00/0000</div>
+    </div>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar" id="sidebar">
+        <!-- Hamburger Menu Inside Sidebar -->
+        <div class="hamburger-menu" id="hamburger">☰</div>
+
+        <div class="profile-section">
+            <img src="../pictures/user1.png" alt="Profile Picture">
+            <p>Hello User</p>
+        </div>
+        <ul class="nav-links">
+            <li><a href="../index.html">🏠 Home</a></li>
+            <li><a href="incoming.html">📥 Incoming</a></li>
+            <li><a href="outgoing.html">📤 Outgoing</a></li>
+            <li><a href="seedreg.html">🌱 Seedlings</a></li>
+            <li><a href="#">📑 Records</a></li>
+            <li><a href="history.html">⏳ History</a></li>
+            <li><a href="#">⚙️ Settings</a></li>
+            <li><a href="login.html">⚙️ Logout</a></li>
+        </ul>
+    </div>
+
+
+    <div class="form-container">
+        <h1>SEEDLINGS INCOMING</h1>
+        <hr>
+        <form id="seedlings-form">
+            <div class="form-group">
+            <label for="Source">Source:</label>
+            <input type="text" id="Source" name="Source" required>
+        </div>
+        <div class="form-group">
+            <label for="Quantity">Quantity:</label>
+            <input type="number" id="Quantity" name="Quantity" required>
+        </div>
+        <div class="form-group">
+            <label for="Location">Location:</label>
+            <input type="text" id="Location" name="Location" required>
+        </div>
+        <div class="form-group">
+            <label for="SeedlingName">Seedling Name:</label>
+            <input type="text" id="SeedlingName" name="SeedlingName" required>
+        </div>
+        <div class="form-group calendar-icon">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+        </div>
+        <button type="submit">SUBMIT</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const sidebar = document.getElementById('sidebar');
+        hamburger.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+
+        // Time and date update
+        function updateTimeDate() {
+            const now = new Date();
+            const time = now.toLocaleTimeString();
+            const date = now.toLocaleDateString();
+            document.getElementById('time-date').textContent = `TIME: ${time} DATE: ${date}`;
+        }
+        setInterval(updateTimeDate, 1000);
+
+        // Form submission with SweetAlert
+        document.getElementById('seedlings-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            Swal.fire({
+                icon: 'success',
+                title: 'Form Submitted!',
+             
+                confirmButtonText: 'Ok',
+                customClass: {
+                    confirmButton: 'green-button' // Add custom class
+                }
+            });
+
+            this.reset();
+        });
+
+        // Style the SweetAlert button
+        document.styleSheets[0].insertRule(`
+            .swal2-confirm.green-button {
+                background-color: #4CAF50 !important; /* Green color */
+                border-color: #45a049 !important;
+            }
+        `, 0);
+    </script>
+</body>
+</html>

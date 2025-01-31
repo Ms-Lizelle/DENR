@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction History</title>
+    <link rel="stylesheet" href="../styles/history.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <div class="nav-bar">
+        <img src="../pictures/logo1.jpg" alt="Logo" class="nav-logo">
+        <div id="time-date">TIME: 00:00 AM DATE: 00/00/0000</div>
+    </div>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar" id="sidebar">
+        <div class="hamburger-menu" id="hamburger">☰</div>
+        <div class="profile-section">
+            <img src="../pictures/user1.png" alt="Profile Picture">
+            <p>Hello User</p>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Home</a></li>
+            <li><a href="templates/incoming.html">📥 Incoming</a></li>
+            <li><a href="templates/outgoing.html">📤 Outgoing</a></li>
+            <li><a href="templates/seedreg.html">🌱 Seedlings</a></li>
+            <li><a href="#">📑 Records</a></li>
+            <li><a href="#">⏳ History</a></li>
+            <li><a href="#">⚙️ Settings</a></li>
+            <li><a href="templates/login.html">⚙️ Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="transaction-container">
+        <h1>Transaction History</h1>
+        
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" placeholder="Search here...">
+            <button>🔍</button>
+        </div>
+
+        <!-- Export Button -->
+        <button class="export-button">Export 📁</button>
+
+        <!-- Transaction Table -->
+        <table class="transaction-table">
+            <thead>
+                <tr>
+                    <th>Transact#</th>
+                    <th>SOID</th>
+                    <th>RECORDS</th>
+                    <th>SEEDLING NAME</th>
+                    <th>QUANTITY</th>
+                    <th>DATE</th>
+                    <th>STATUS</th>
+                    <th>SOURCE</th>
+                    <th>LOCATION</th>
+                    <th>REQUEST NAME</th>
+                    <th>ACTION</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Add table rows here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const sidebar = document.getElementById('sidebar');
+        hamburger.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+
+        // Time and date update
+        function updateTimeDate() {
+            const now = new Date();
+            const time = now.toLocaleTimeString();
+            const date = now.toLocaleDateString();
+            document.getElementById('time-date').textContent = `TIME: ${time} DATE: ${date}`;
+        }
+        setInterval(updateTimeDate, 1000);
+    </script>
+</body>
+</html>
