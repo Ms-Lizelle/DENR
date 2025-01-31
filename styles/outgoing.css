@@ -23,11 +23,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-<<<<<<< HEAD
     z-index: 500;
-=======
-    z-index: 10;
->>>>>>> 144122478d53a83d7caf83ba4866ee0212528e05
 }
 
 .nav-logo {
