@@ -8,13 +8,23 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- SweetAlert Library -->
 </head>
 <body>
+    <video autoplay loop muted playsinline class="bg-video">
+        <source src="pictures/denr.mov" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
     <div class="login-container">
-        <img src="../pictures/logo.png" alt="Logo" class="logo">
+        <img src="pictures/logo.png" alt="Logo" class="logo">
         <input type="email" id="username" placeholder="EMAIL" required>
         <input type="password" id="password" placeholder="PASSWORD" required>
         <p class="forgot-password">Forgot password? <a href="forgot.html">Click here</a></p>
         <button class="login-button" id="loginButton" type="button">LOG IN</button>
     </div>
+</body>
+
+
+
+
 
     <script type="module">
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js';
