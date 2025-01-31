@@ -11,10 +11,11 @@ body {
 }
 
 /* Navigation Bar */
+/* Navigation Bar */
 .nav-bar {
     background: #234d20;
     color: white;
-    padding: 20px 30px;
+    padding: 5px 20px;
     display: flex;
     align-items: center;
     font-size: 18px;
@@ -22,7 +23,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000;
+    z-index: 10;
 }
 
 .nav-logo {
@@ -39,7 +40,6 @@ body {
     text-overflow: ellipsis;
     padding-right: 50px;
 }
-
 /* Sidebar */
 .sidebar {
     position: fixed;
