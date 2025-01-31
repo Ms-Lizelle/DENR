@@ -116,14 +116,24 @@ body {
     left: 270px;
 }
 /* Custom styles for the Transaction History page */
+.transaction-container {
+    background: white;
+    padding: 2rem;
+    max-width: 900px;
+    margin: 2rem auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 100px;
+    border-radius: 12px;
+}
 
 .transaction-container h1 {
     text-align: center;
-    margin-bottom: 20px;
+    margin: 50px 0 20px;  /* Shorthand margin for top, bottom, and left-right (0) */
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 700;  /* Typically, 700 is used for bold, but feel free to adjust it */
     color: #234d20;
 }
+
 
 /* Search Bar */
 .search-bar {
