@@ -23,7 +23,11 @@ body {
     position: fixed;
     top: 0;
     left: 0;
+<<<<<<< HEAD
+    z-index: 500;
+=======
     z-index: 10;
+>>>>>>> e64375298856807928ac26e6a9ebe001b88f6314
 }
 
 .nav-logo {
@@ -50,7 +54,6 @@ body {
     background: #234d20;
     padding-top: 70px;
     transition: left 0.3s ease-in-out;
-    z-index: 1000;
 }
 
 .sidebar.open {
