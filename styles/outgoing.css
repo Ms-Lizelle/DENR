@@ -50,7 +50,6 @@ body {
     background: #234d20;
     padding-top: 70px;
     transition: left 0.3s ease-in-out;
-    z-index: 1000;
 }
 
 .sidebar.open {
