@@ -5,185 +5,145 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> REGISTER A SEEDLING </title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://kit.fontawesome.com/979a94338f.js" crossorigin="anonymous"></script>
     <style>
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
-            padding: 0;
-            background-color: #f4f4f4;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+.logo-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
 
-        /* Navigation Bar */
-        .nav-bar {
-            background: #234d20;
-            color: white;
-            padding: 20px 30px;
-            display: flex;
-            align-items: center;
-            font-size: 18px;
-            width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 10;
-        }
+/* Navigation Bar */
+.nav-bar {
+    background: #182f16;
+    color: white;
+    padding: 5px 20px;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
 
-        .nav-logo {
-            width: 40px;
-            height: auto;
-            margin-right: 10px;
-        }
+.nav-logo {
+    width: 40px;
+    height: auto;
+    margin-right: 10px;
+}
 
-        .nav-bar #time-date {
-            font-size: 18px;
-            margin-left: auto;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            padding-right: 50px;
-        }
+.nav-bar #time-date {
+    font-size: 17px;
+    font-family: 'Poppins', sans-serif;
+    margin-left: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 50px;
+}
 
-        /* Sidebar */
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: -250px;
-            width: 250px;
-            height: 100vh;
-            background: #234d20;
-            padding-top: 70px;
-            transition: left 0.3s ease-in-out;
-        }
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 200px;
+    height: 100vh;
+    background: rgba(115, 218, 115, 0.2);
+    padding-top: 100px;
+    transition: left 0.5s ease-in-out;
+    box-shadow: rgba(59, 98, 49, 0.2);
+}
 
-        .sidebar.open {
-            left: 0;
-        }
+.sidebar.open {
+    left: 0;
+}
 
-        /* Profile Section */
-        .profile-section {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+/* Profile Section */
+.profile-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
 
-        .profile-section img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            border: 2px solid white;
-        }
+.profile-section img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
 
-        .profile-section p {
-            color: white;
-            margin-top: 5px;
-            font-weight: bold;
-        }
+.profile-section p {
+    color: rgb(6, 6, 6);
+    margin-top: 5px;
+    font-weight: bold;
+}
 
-        /* Sidebar Links */
-        .nav-links {
-            list-style: none;
-            padding: 0;
-        }
+/* Sidebar Links */
+.nav-links {
+    list-style: none;
+    padding: 0;
+}
 
-        .nav-links li {
-            padding: 15px;
-            text-align: left;
-        }
+.nav-links li {
+    padding: 15px;
+    text-align: left;
+}
 
-        .nav-links li a {
-            text-decoration: none;
-            color: white;
-            font-size: 18px;
-            display: block;
-            transition: background 0.3s;
-        }
+.nav-links li a {
+    text-decoration: none;
+    color: rgb(10, 10, 10);
+    font-size: 18px;
+    display: block;
+    transition: background 0.3s, transform 0.3s, border-radius 0.3s;
+}
 
-        .nav-links li a:hover {
-            background: #1a3d15;
-        }
+.nav-links li a:hover {
+    background: transparent;
+    transform: scale(1.3) translateX(10px); /* Scale and move to the right */
+    border-radius: 50px; /* Increased border-radius on hover */
+    transition: transform 0.3s ease-in-out;
+}
 
-        /* Hamburger Menu */
-        .hamburger-menu {
-            position: fixed;
-            top: 100px;
-            left: 20px;
-            color: white;
-            font-size: 30px;
-            cursor: pointer;
-            z-index: 50;
-            background: #234d20;
-            padding: 5px 10px;
-            border-radius: 5px;
-            transition: left 0.3s ease-in-out;
-        }
+/* Hamburger Menu */
+.hamburger-menu {
+    position: fixed;
+    top: 100px;
+    left: 20px;
+    color: green;
+    font-size: 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 50;
+    padding: 10px 10px;
+    border-radius: 5px;
+    transition: left 0.5s ease-in-out, transform 0.3s ease-in-out;
+}
 
-        /* Move Hamburger when Sidebar is Open */
-        .sidebar.open + .hamburger-menu {
-            left: 270px;
-        }
+/* Move Hamburger when Sidebar is Open */
+.sidebar.open + .hamburger-menu {
+    left: 270px;
+}
 
-        /* Welcome Section */
-        .welcome-section {
-            background: #2E6B2D;
-            color: white;
-            text-align: center;
-            font-size: 24px;
-            font-weight: bold;
-            padding: 20px;
-            width: auto;
-            margin-top: 100px;
-            margin-left: 10%;
-            margin-right: 10%;
-            border-radius: 10px;
-        }
-
-        /* Content Section */
-        .index-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            margin-top: 20px;
-        }
-
-        .index-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            width: 80%;
-            max-width: 1000px;
-            margin-bottom: 30px;
-        }
-
-        .index-content img {
-            max-width: 180px;
-            height: auto;
-            border-radius: 5px;
-        }
-
-        .index-text {
-            text-align: justify;
-            max-width: 50%;
-        }
-
-        /* Continue Button */
-        .button-container {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .button-container button {
-            background: #2c3e50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
+.hamburger-menu:hover {
+    transform: scale(1.2); /* Scale effect on hover */
+}
 
         /* Form Container */
         .form-container {
@@ -276,30 +236,31 @@
     </style>
 </head>
 <body>
+    <!-- Top Navigation Bar -->
     <div class="nav-bar">
-        <img src="../pictures/logo1.jpg" alt="Logo" class="nav-logo">
-        <div id="time-date">TIME: 00:00 AM DATE: 00/00/0000</div>
-    </div>
+        <h1 class="logo-text">CENRO ARGAO</h1>
+    <div id="time-date">TIME: 00:00 AM DATE: 00/00/0000</div>
+</div>
 
-     <!-- Sidebar Navigation -->
-     <div class="sidebar" id="sidebar">
-        <!-- Hamburger Menu Inside Sidebar -->
-        <div class="hamburger-menu" id="hamburger">☰</div>
+<!-- Sidebar Navigation -->
+<div class="sidebar" id="sidebar">
+    <!-- Hamburger Menu Inside Sidebar -->
+    <div class="hamburger-menu" id="hamburger">☰</div>
 
-        <div class="profile-section">
-            <img src="../pictures/user1.png" alt="Profile Picture">
-            <p>Hello User</p>
-        </div>
-        <ul class="nav-links">
-            <li><a href="../index.html">🏠 Home</a></li>
-            <li><a href="incoming.html">📥 Incoming</a></li>
-            <li><a href="outgoing.html">📤 Outgoing</a></li>
-            <li><a href="seedreg.html">🌱 Seedlings</a></li>
-            <li><a href="#">📑 Records</a></li>
-            <li><a href="history.html">⏳ History</a></li>
-            <li><a href="login.html">⚙️ Logout</a></li>
-        </ul>
+    <div class="profile-section">
+        <img src="../pictures/user1.png" alt="Profile Picture">
+        <p>Hello User</p>
     </div>
+    <ul class="nav-links">
+        <li><a href="../index.html"> <i class="fa-solid fa-house-user"></i> Home </a></li>
+        <li><a href="incoming.html"> <i class="fa-solid fa-boxes-packing"></i> Incoming </a></li>
+        <li><a href="outgoing.html"> <i class="fa-solid fa-truck"></i> Outgoing </a></li>
+        <li><a href="seedreg.html"><i class="fa-solid fa-seedling"></i> Seedlings </a></li>
+        <li><a href="history.html"><i class="fa-regular fa-clipboard"></i> History </a></li>
+        <li><a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Logout </a></li>
+    </ul>
+    
+</div>
 
     <div class="form-container">
         <h1>REGISTER A SEEDLING</h1>
