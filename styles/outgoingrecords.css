@@ -195,6 +195,7 @@ body {
     color: white;
     font-weight: bold;
     text-transform: uppercase;
+    border-radius: 2px;
 }
 
 .records-table tr:nth-child(even) {
@@ -215,6 +216,7 @@ body {
     cursor: pointer;
     font-size: 13px;
     transition: background-color 0.3s ease;
+    border-radius: 5px;
 }
 
 .action-btn:hover {
