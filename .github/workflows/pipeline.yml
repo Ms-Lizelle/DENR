@@ -1,0 +1,25 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Change this to 'master' if your default branch is named that
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checkout the code with submodules
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive  # This fetches submodules
+        fetch-depth: 0  # Ensures full history is fetched
+
+    # Deploy the website to GitHub Pages
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.MY_TOKEN }}
+        publish_dir: ./SIA  # Ensure this is the correct directory for your site files
