@@ -8,11 +8,13 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- SweetAlert Library -->
 </head>
 <body>
+    <!-- Background Video -->
     <video autoplay loop muted playsinline class="bg-video">
-        <source src="pictures/denr.MOV" type="video/mp4">
+        <source src="pictures/denr.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
+    <!-- Login Form -->
     <div class="login-container">
         <img src="pictures/logo.png" alt="Logo" class="logo">
         <input type="email" id="username" placeholder="EMAIL" required>
@@ -20,7 +22,6 @@
         <p class="forgot-password">Forgot password? <a href="forgot.html">Click here</a></p>
         <button class="login-button" id="loginButton" type="button">LOG IN</button>
     </div>
-</body>
 
 
 
@@ -104,6 +105,12 @@
         // Clear alerts when the user starts typing
         document.getElementById('username').addEventListener('input', () => swal.close());
         document.getElementById('password').addEventListener('input', () => swal.close());
+        document.addEventListener("DOMContentLoaded", function () {
+    let video = document.querySelector(".bg-video");
+
+    video.play().catch(error => console.log("Autoplay prevented:", error));
+});
+
     </script>
 </body>
 </html>
