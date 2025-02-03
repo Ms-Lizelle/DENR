@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <title>OUTGOING RECORDS</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .navbar {
+      background: black;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar .left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .home-btn {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .logo-text {
+      font-family: 'Poppins', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: white;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    /* Sidebar Styling */
+    .sidebar {
+      background-color: #777;
+      width: 220px;
+      padding: 20px;
+      border-radius: 0 15px 15px 0;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: fixed;
+      left: -220px;
+      top: 50px;
+      transition: left 0.3s;
+    }
+
+    .sidebar.open {
+      left: 0;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      width: 100%;
+      padding-top: 20px;
+    }
+
+    .sidebar ul li {
+      margin: 15px 0;
+    }
+
+    .sidebar ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      display: block;
+      text-align: center;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .sidebar ul li a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Hamburger Button */
+    .menu-toggle {
+      position: absolute;
+      top: 60px;
+      left: 20px;
+      background: none;
+      border: none;
+      font-size: 30px;
+      cursor: pointer;
+      color: black;
+      padding: 10px;
+      transition: left 0.3s;
+    }
+
+    .sidebar.open ~ .menu-toggle {
+      left: 180px;
+      color: white;
+    }
+
+    /* Main Content Styling */
+    .container {
+      margin: 70px 20px 20px 20px;
+    }
+
+    .heading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.search-container {
+    position: absolute;
+    right: 0;
+}
+
+
+    .search-box {
+      width: 300px;
+      padding: 7.10px;
+      font-size: 16px;
+      border: 2px solid #777;
+      border-radius: 5px 0 0 5px;
+      outline: none;
+    }
+
+    .search-button {
+      padding: 10px 15px;
+      background-color: #777;
+      color: white;
+      border: none;
+      border-radius: 0 5px 5px 0;
+      cursor: pointer;
+    }
+
+    .search-button i {
+      font-size: 16px;
+    }
+
+    .search-button:hover {
+      background-color: #555;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: #fff;
+    }
+
+    table thead {
+      background-color: #333;
+      color: #fff;
+    }
+
+    table th,
+    table td {
+      padding: 10px;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+
+    table tbody tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+  </style>
+  <script>
+    function updateDateTime() {
+      const now = new Date();
+      const formattedTime = now.toLocaleTimeString();
+      const formattedDate = now.toLocaleDateString();
+      document.getElementById("datetime").innerText = `TIME: ${formattedTime} DATE: ${formattedDate}`;
+    }
+    setInterval(updateDateTime, 1000);
+
+    function toggleSidebar() {
+      const sidebar = document.querySelector(".sidebar");
+      const menuToggle = document.querySelector(".menu-toggle");
+
+      sidebar.classList.toggle("open");
+
+      if (sidebar.classList.contains("open")) {
+        menuToggle.style.left = "180px";
+        menuToggle.style.color = "white";
+      } else {
+        menuToggle.style.left = "20px";
+        menuToggle.style.color = "black";
+      }
+    }
+  </script>
+</head>
+<body onload="updateDateTime()">
+  <header>
+    <div class="navbar">
+      <div class="left">
+        <h1 class="logo-text">CENRO ARGAO</h1>
+        <span id="datetime">TIME: 00:00 DATE: 0/00/00</span>
+      </div>
+      <a href="#" class="home-btn">HOME ➜</a>
+    </div>
+  </header>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <ul>
+      <li><a href="#"><i class="fa-solid fa-seedling"></i> OUTGOING RECORDS</a></li>
+      <li><a href="#"><i class="fa-solid fa-leaf"></i> OUTGOING RECORDS</a></li>
+      <li><a href="#"><i class="fa-solid fa-seedling"></i> SEEDLINGS</a></li>
+      <li><a href="#"><i class="fa-solid fa-database"></i> ALL RECORDS</a></li>
+      <li><a href="#"><i class="fa-solid fa-right-from-bracket"></i> LOGOUT</a></li>
+    </ul>
+  </div>
+
+  <!-- Hamburger button -->
+  <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+
+  <div class="container">
+    <main>
+      <div class="heading-container">
+        <h1>OUTGOING RECORDS</h1>
+        <div class="search-container">
+          <input type="text" class="search-box" placeholder="SEARCH A RECORD">
+          <button class="search-button">
+            <i class="fa-solid fa-search"></i>
+          </button>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Transaction#</th>
+            <th>SDID</th>
+            <th>Source</th>
+            <th>QTY</th>
+            <th>Location</th>
+            <th>SName</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>12332</td>
+            <td>2325</td>
+            <td>LGU</td>
+            <td>150</td>
+            <td>LAMACAN</td>
+            <td>NARRA</td>
+            <td>1/23/25</td>
+            <td>HEALTHY</td>
+            <td>🔧</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </div>
+</body>
+</html>
