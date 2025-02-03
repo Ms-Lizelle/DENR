@@ -5,67 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transaction History</title>
     <link rel="stylesheet" href="../styles/history.css">
+    <script src="https://kit.fontawesome.com/979a94338f.js" crossorigin="anonymous"></script>
     <style>
         
     </style>
 </head>
 <body>
     <!-- Top Navigation Bar -->
-    <div class="nav-bar">
-        <img src="../pictures/logo1.jpg" alt="Logo" class="nav-logo">
-        <div id="time-date">TIME: 00:00 AM DATE: 00/00/0000</div>
+  <div class="nav-bar">
+    <h1 class="logo-text">CENRO ARGAO</h1>
+    <div id="time-date">TIME: 00:00 AM DATE: 00/00/0000</div>
+  </div>
+
+  <!-- Sidebar Navigation -->
+  <div class="sidebar" id="sidebar">
+    <!-- Hamburger Menu Inside Sidebar -->
+    <div class="hamburger-menu" id="hamburger">☰</div>
+
+    <div class="profile-section">
+        <img src="../pictures/user1.png" alt="Profile Picture">
+        <p>Hello User</p>
     </div>
+    <ul class="nav-links">
+        <li><a href="../index.html"> <i class="fa-solid fa-house-user"></i> Home </a></li>
+        <li><a href="incoming.html"> <i class="fa-solid fa-boxes-packing"></i> Incoming </a></li>
+        <li><a href="outgoing.html"> <i class="fa-solid fa-truck"></i> Outgoing </a></li>
+        <li><a href="seedreg.html"><i class="fa-solid fa-seedling"></i> Seedlings </a></li>
+        <li><a href="history.html"><i class="fa-regular fa-clipboard"></i> History </a></li>
+        <li><a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Logout </a></li>
+    </ul>
+    
+</div>
 
-    <!-- Sidebar Navigation -->
-    <div class="sidebar" id="sidebar">
-        <div class="hamburger-menu" id="hamburger">☰</div>
-        <div class="profile-section">
-            <img src="../pictures/user1.png" alt="Profile Picture">
-            <p>Hello User</p>
-        </div>
-        <ul class="nav-links">
-            <li><a href="../templates/index.com">🏠 Home</a></li>
-            <li><a href="../templates/incoming.html">📥 Incoming</a></li>
-            <li><a href="../templates/outgoing.html">📤 Outgoing</a></li>
-            <li><a href="../templates/seedreg.html">🌱 Seedlings</a></li>
-            <li><a href="../templates/history.html">⏳History</a></li>
-            <li><a href="../templates/">⚙️ Logout</a></li>
-        </ul>
+        <div class="seedling-records-container">
+        <h2>TRANSACTION HISTORY</h2>
+        <div class="search-export-bar">
+    <div class="search-wrapper">
+        <input type="text" id="search-bar" placeholder="Search here..." />
+        <i class="fa fa-search search-icon"></i> <!-- Search icon -->
     </div>
+    <button id="export-btn">
+        <i class="fa fa-download"></i> Export <!-- Export icon -->
+    </button>
+</div>
 
-    <!-- Main Content Section -->
-    <div class="transaction-container">
-        <h1>Transaction History</h1>
-        
-        <!-- Search Bar -->
-        <div class="search-bar">
-            <input type="text" placeholder="Search here...">
-            <button>🔍</button>
-        </div>
-
-        <!-- Export Button -->
-        <button class="export-button">Export 📁</button>
-
-        <!-- Transaction Table -->
-        <table class="transaction-table">
+        <table class="records-table">
             <thead>
                 <tr>
                     <th>Transact#</th>
-                    <th>SOID</th>
-                    <th>RECORDS</th>
-                    <th>SEEDLING NAME</th>
-                    <th>QUANTITY</th>
-                    <th>DATE</th>
-                    <th>STATUS</th>
-                    <th>SOURCE</th>
-                    <th>LOCATION</th>
-                    <th>REQUEST NAME</th>
-                    <th>ACTION</th>
+                    <th>SDID</th>
+                    <th>Records</th>
+                    <th>Seedling Name</th>
+                    <th>Quantity</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Source</th>
+                    <th>Location</th>
+                    <th>Request Name</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 <!-- Add table rows here -->
             </tbody>
+                
         </table>
     </div>
 
