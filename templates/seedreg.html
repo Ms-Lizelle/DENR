@@ -200,21 +200,44 @@ body {
             padding: 0.5rem;
         }
 
-        .form-container form button {
-            background-color: #4CAF50; /* Updated color */
-            color: white;
-            border: none;
-            padding: 0.7rem;
-            font-size: 1rem;
-            border-radius: 4px;
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: background-color 0.3s;
-        }
+        .submit-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
 
-        .form-container form button:hover {
-            background-color: #45a049; /* Darker shade when hovered */
-        }
+/* Submit Button */
+.submit-btn {
+    padding: 15px 30px;
+    font-size: 20px;
+    background-color: #2e7d32 !important;
+    color: white !important;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #1b5e20 !important;
+}
+
+/* View Records Button */
+.view-records-button {
+    padding: 15px 30px;
+    font-size: 20px;
+    background-color: #2e7d32 !important;
+    color: white !important;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.view-records-button:hover {
+    background-color: #1b5e20 !important;
+}
 
         .form-container form .calendar-icon {
             position: relative;
@@ -257,7 +280,7 @@ body {
         <li><a href="outgoing.html"> <i class="fa-solid fa-truck"></i> Outgoing </a></li>
         <li><a href="seedreg.html"><i class="fa-solid fa-seedling"></i> Seedlings </a></li>
         <li><a href="history.html"><i class="fa-regular fa-clipboard"></i> History </a></li>
-        <li><a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Logout </a></li>
+        <li><a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> LOGOUT</a></li>
     </ul>
     
 </div>
@@ -286,7 +309,10 @@ body {
                 <input type="date" id="date" name="date" required>
             </div>
 
-            <button type="submit">Submit</button>
+            <div class="submit-container">
+                <button type="submit" class="submit-btn">SUBMIT</button>
+                <button class="view-records-button" onclick="location.href='allrecords.html'">VIEW RECORDS</button>
+            </div>
         </form>
     </div>
 

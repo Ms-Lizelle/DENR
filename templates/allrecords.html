@@ -20,14 +20,20 @@
     <div class="seedling-records-container">
         <h2>RECORD OF ALL SEEDLINGS </h2>
         <div class="search-export-bar">
-    <div class="search-wrapper">
-        <input type="text" id="search-bar" placeholder="Search here..." />
-        <i class="fa fa-search search-icon"></i> <!-- Search icon -->
-    </div>
-    <button id="export-btn">
-        <i class="fa fa-download"></i> Export <!-- Export icon -->
-    </button>
-</div>
+            <div class="search-wrapper">
+                <input type="text" id="search-bar" placeholder="Search here..." />
+                <i class="fa fa-search search-icon"></i> <!-- Search icon -->
+            </div>
+            <!-- Button Container for Export and Return buttons -->
+            <div class="btn-container">
+                <button id="export-btn">
+                    <i class="fa fa-download"></i> Export
+                </button>
+                <button id="return-btn" onclick="window.location.href='incoming.html'">
+                    <i class="fa fa-arrow-left"></i> Return
+                </button>
+            </div>
+        </div>
 
         <table class="records-table">
             <thead>

@@ -9,26 +9,30 @@
     <script src="https://kit.fontawesome.com/979a94338f.js" crossorigin="anonymous"></script>
 </head>
 
-
 <body>
     <!-- Top Navigation Bar -->
     <div class="nav-bar">
         <h1 class="logo-text">CENRO ARGAO</h1>
-    <div id="time-date">TIME: 00:00 AM DATE: 00/00/0000</div>
-</div>
-
+        <div id="time-date">TIME: 00:00 AM DATE: 00/00/0000</div>
+    </div>
 
     <div class="seedling-records-container">
         <h2>SEEDLING RECORDS INCOMING</h2>
         <div class="search-export-bar">
-    <div class="search-wrapper">
-        <input type="text" id="search-bar" placeholder="Search here..." />
-        <i class="fa fa-search search-icon"></i> <!-- Search icon -->
-    </div>
-    <button id="export-btn">
-        <i class="fa fa-download"></i> Export <!-- Export icon -->
-    </button>
-</div>
+            <div class="search-wrapper">
+                <input type="text" id="search-bar" placeholder="Search here..." />
+                <i class="fa fa-search search-icon"></i> <!-- Search icon -->
+            </div>
+            <!-- Button Container for Export and Return buttons -->
+            <div class="btn-container">
+                <button id="export-btn">
+                    <i class="fa fa-download"></i> Export
+                </button>
+                <button id="return-btn" onclick="window.location.href='incoming.html'">
+                    <i class="fa fa-arrow-left"></i> Return
+                </button>
+            </div>
+        </div>
 
         <table class="records-table">
             <thead>
@@ -44,8 +48,6 @@
                     <th>Action</th>
                 </tr>
             </thead>
-           
-                
         </table>
     </div>
 

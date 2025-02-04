@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../styles/admin.css">
+  <title>Incoming Records</title>
+
+  <script>
+    function updateDateTime() {
+      const now = new Date();
+      const formattedTime = now.toLocaleTimeString();
+      const formattedDate = now.toLocaleDateString();
+      document.getElementById("datetime").innerText = `TIME: ${formattedTime} DATE: ${formattedDate}`;
+    }
+    setInterval(updateDateTime, 1000);
+
+    function toggleSidebar() {
+      const sidebar = document.querySelector(".sidebar");
+      const menuToggle = document.querySelector(".menu-toggle");
+
+      sidebar.classList.toggle("open");
+
+      if (sidebar.classList.contains("open")) {
+        menuToggle.style.left = "180px";
+        menuToggle.style.color = "white";
+      } else {
+        menuToggle.style.left = "20px";
+        menuToggle.style.color = "black";
+      }
+    }
+  </script>
+</head>
+<body onload="updateDateTime()">
+  <header>
+    <div class="navbar">
+      <div class="left">
+        <h1 class="logo-text">CENRO ARGAO</h1>
+        <span id="datetime">TIME: 00:00 DATE: 0/00/00</span>
+      </div>
+      <a href="adminhomepage.html" class="home-btn">HOME ➜</a>
+    </div>
+  </header>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <ul>
+        <li><a href="ADMINincoming.html"><i class="fa-solid fa-seedling"></i> INCOMING RECORDS</a></li>
+        <li><a href="ADMINoutgoing.html"><i class="fa-solid fa-leaf"></i> OUTGOING RECORDS</a></li>
+        <li><a href="ADMINseedlings.html"><i class="fa-solid fa-seedling"></i> SEEDLINGS</a></li>
+        <li><a href="adminhomepage.html"><i class="fa-solid fa-record-vinyl"></i> ALL RECORDS</a></li>
+        <li><a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> LOGOUT</a></li>
+    </ul>
+</div>
+
+  <!-- Hamburger button -->
+  <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+
+  <div class="container">
+    <main>
+      <div class="heading-container">
+        <h1>INCOMING RECORDS</h1>
+        <div class="search-container">
+          <input type="text" class="search-box" placeholder="SEARCH A RECORD">
+          <button class="search-button">
+            <i class="fa-solid fa-search"></i>
+          </button>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>TRANSACTION#</th>
+            <th>SDID</th>
+            <th>SOURCE</th>
+            <th>QTY</th>
+            <th>LOCATION</th>
+            <th>SNAME</th>
+            <th>DATE</th>
+            <th>STATUS</th>
+            <th>ACTIONS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>12332</td>
+            <td>2325</td>
+            <td>LGU</td>
+            <td>150</td>
+            <td>LAMACAN</td>
+            <td>NARRA</td>
+            <td>1/23/25</td>
+            <td>HEALTHY</td>
+            <td>🔧</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </div>
+</body>
+</html>

@@ -8,6 +8,7 @@
     letter-spacing: 3px;
     text-transform: uppercase;
 }
+
 /* General Styles */
 body {
     font-family: Arial, sans-serif;
@@ -169,20 +170,34 @@ body {
 /* Search and Export Bar */
 .search-export-bar {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Ensure the search bar is left and buttons on the right */
     align-items: center;
+    width: 40;
     margin-bottom: 20px;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    width: 70%;
 }
 
 #search-bar {
-    width: 70%;
+    width: 25%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
 }
 
-#export-btn {
+.search-export-bar .btn-container {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    width: 30%; /* Ensure the container is 30% to the right of the bar */
+}
+
+#export-btn, #return-btn {
     padding: 10px 25px;
     background-color: #234d20;
     color: white;
@@ -191,10 +206,21 @@ body {
     font-size: 14px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-left: 10px; /* Add space between buttons */
 }
 
+/* Export Button Hover */
 #export-btn:hover {
     background-color: #1a3c14;
+}
+
+/* Return Button */
+#return-btn {
+    background-color: #f44336; /* Red color */
+}
+
+#return-btn:hover {
+    background-color: #d32f2f; /* Darker red on hover */
 }
 
 /* Table Styling */
@@ -247,58 +273,52 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    /* Adjusting container form */
     .seedling-records-container {
         width: 95%; /* Make the container almost full width */
-        margin: 120px 10px; /* Reduced margin on the sides */
+        margin: 120px 10px;
     }
 
-    /* Adjust search bar to fit smaller screens */
     .search-export-bar {
         flex-direction: column;
         align-items: flex-start;
     }
 
     #search-bar {
-        width: 100%; /* Make the search bar full width */
-        margin-bottom: 10px; /* Add space between the search bar and export button */
+        width: 100%;
+        margin-bottom: 10px;
     }
 
-    #export-btn {
-        width: 100%; /* Make the export button full width */
+    #export-btn, #return-btn {
+        width: 100%;
+        margin-bottom: 10px;
     }
 
-    /* Sidebar */
     .sidebar {
-        width: 200px; /* Make the sidebar slightly smaller on smaller screens */
+        width: 200px;
     }
 
-    /* Hamburger Menu */
     .hamburger-menu {
-        top: 80px; /* Adjust hamburger menu for smaller screens */
+        top: 80px;
         left: 15px;
     }
 
-    /* Table Adjustments */
     .records-table th, .records-table td {
         padding: 10px;
-        font-size: 12px; /* Slightly smaller font size for the table */
+        font-size: 12px;
     }
 }
 
 @media (max-width: 480px) {
-    /* For very small screens like phones */
     .nav-bar {
-        font-size: 16px; /* Adjust font size in the navbar */
-        padding: 15px 20px; /* Adjust padding for smaller screens */
+        font-size: 16px;
+        padding: 15px 20px;
     }
 
     .seedling-records-container {
-        width: 100%; /* Full width on smaller screens */
-        margin: 120px 0; /* Remove side margin */
+        width: 100%;
+        margin: 120px 0;
     }
 
-    /* Further adjustments for small screens */
     .search-export-bar {
         flex-direction: column;
         width: 100%;
@@ -308,12 +328,13 @@ body {
         width: 100%;
     }
 
-    #export-btn {
+    #export-btn, #return-btn {
         width: 100%;
+        margin-bottom: 10px;
     }
 
     .hamburger-menu {
-        top: 70px; /* Adjust for very small screens */
+        top: 70px;
         left: 10px;
     }
 }

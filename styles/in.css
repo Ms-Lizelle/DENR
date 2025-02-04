@@ -8,6 +8,7 @@
     letter-spacing: 3px;
     text-transform: uppercase;
 }
+
 /* General Styles */
 body {
     font-family: Arial, sans-serif;
@@ -141,7 +142,7 @@ body {
 .form-container {
     background: white;
     padding: 2rem;
-    max-width: 600px;
+    width: 550px; /* Adjusted width */
     margin: 2rem auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 80px;
@@ -164,7 +165,6 @@ body {
 .form-container form {
     display: flex;
     flex-direction: column;
-    
 }
 
 .form-container form .form-group {
@@ -193,36 +193,42 @@ body {
     padding: 0.5rem;
 }
 
-.form-container form button {
-    background-color: #4CAF50;
-    color: white;
+.submit-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Submit Button */
+.submit-btn {
+    padding: 15px 30px;
+    font-size: 20px;
+    background-color: #2e7d32 !important;
+    color: white !important;
     border: none;
-    padding: 0.7rem;
-    font-size: 1rem;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
-    text-transform: uppercase;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
+}
+/*EXPORT BUTTON*/
+
+.submit-btn:hover {
+    background-color: #1b5e20 !important;
 }
 
-.form-container form button:hover {
-    background-color: #45a049;
+/* View Records Button */
+.view-records-button {
+    padding: 15px 30px;
+    font-size: 20px;
+    background-color: #2e7d32 !important;
+    color: white !important;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.form-container form .calendar-icon {
-    position: relative;
-}
-
-.form-container form input[type="date"] {
-    display: inline-block;
-    width: calc(100% - 2.5rem);
-}
-
-.form-container form input[type="date"] + .calendar-icon {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #3e643d;
-    font-size: 1.2rem;
+.view-records-button:hover {
+    background-color: #1b5e20 !important;
 }

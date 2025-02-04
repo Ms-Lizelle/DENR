@@ -9,17 +9,15 @@
     <script src="https://kit.fontawesome.com/979a94338f.js" crossorigin="anonymous"></script>
 </head>
 <body>
-     <!-- Top Navigation Bar -->
+    <!-- Top Navigation Bar -->
     <div class="nav-bar">
         <h1 class="logo-text">CENRO ARGAO</h1>
-    <div id="time-date">TIME: 00:00 AM DATE: 00/00/0000</div>
-</div>
+        <div id="time-date">TIME: 00:00 AM DATE: 00/00/0000</div>
+    </div>
 
     <!-- Sidebar Navigation -->
     <div class="sidebar" id="sidebar">
-        <!-- Hamburger Menu Inside Sidebar -->
         <div class="hamburger-menu" id="hamburger">☰</div>
-
         <div class="profile-section">
             <img src="../pictures/user1.png" alt="Profile Picture">
             <p>Hello User</p>
@@ -30,37 +28,50 @@
             <li><a href="outgoing.html"> <i class="fa-solid fa-truck"></i> Outgoing </a></li>
             <li><a href="seedreg.html"><i class="fa-solid fa-seedling"></i> Seedlings </a></li>
             <li><a href="history.html"><i class="fa-regular fa-clipboard"></i> History </a></li>
-            <li><a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Logout </a></li>
+            <li><a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> LOGOUT</a></li>
         </ul>
-        
     </div>
 
-
     <div class="form-container">
-        <h1>SEEDLINGS INCOMING</h1>
-        <hr>
+        <div class="form-header">
+            <h1>SEEDLINGS INCOMING</h1>
+            <hr>
+        </div>
+        
+
         <form id="seedlings-form">
             <div class="form-group">
-            <label for="Source">Source:</label>
-            <input type="text" id="Source" name="Source" required>
-        </div>
-        <div class="form-group">
-            <label for="Quantity">Quantity:</label>
-            <input type="number" id="Quantity" name="Quantity" required>
-        </div>
-        <div class="form-group">
-            <label for="Location">Location:</label>
-            <input type="text" id="Location" name="Location" required>
-        </div>
-        <div class="form-group">
-            <label for="SeedlingName">Seedling Name:</label>
-            <input type="text" id="SeedlingName" name="SeedlingName" required>
-        </div>
-        <div class="form-group calendar-icon">
-            <label for="date">Date:</label>
-            <input type="date" id="date" name="date" required>
-        </div>
-        <button type="submit">SUBMIT</button>
+                <label for="Source">Source:</label>
+                <input type="text" id="Source" name="Source" required>
+            </div>
+            <div class="form-group">
+                <label for="Quantity">Quantity:</label>
+                <input type="number" id="Quantity" name="Quantity" required min="1">
+            </div>
+            <div class="form-group">
+                <label for="Location">Location:</label>
+                <input type="text" id="Location" name="Location" required>
+            </div>
+            <div class="form-group">
+                <label for="SeedlingName">Seedling Name:</label>
+                <input type="text" id="SeedlingName" name="SeedlingName" required>
+            </div>
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="status">Status:</label>
+                <select id="status" name="status" required>
+                    <option value="" disabled selected>Select Status</option>
+                    <option value="Healthy">Healthy</option>
+                    <option value="Defect">Defect</option>
+                </select>
+            </div>
+            <div class="submit-container">
+                <button type="submit" class="submit-btn">SUBMIT</button>
+                <button class="view-records-button" onclick="location.href='incomingrecords.html'">VIEW RECORDS</button>
+            </div>
         </form>
     </div>
 
@@ -89,23 +100,14 @@
             Swal.fire({
                 icon: 'success',
                 title: 'Form Submitted!',
-             
                 confirmButtonText: 'Ok',
                 customClass: {
-                    confirmButton: 'green-button' // Add custom class
+                    confirmButton: 'green-button'
                 }
             });
 
             this.reset();
         });
-
-        // Style the SweetAlert button
-        document.styleSheets[0].insertRule(`
-            .swal2-confirm.green-button {
-                background-color: #4CAF50 !important; /* Green color */
-                border-color: #45a049 !important;
-            }
-        `, 0);
     </script>
 </body>
 </html>

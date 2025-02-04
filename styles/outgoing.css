@@ -197,19 +197,19 @@ input::placeholder {
     font-size: 16px;
 }
 
-/* Submit Container */
 .submit-container {
     display: flex;
-    justify-content: center; /* Centers the button horizontally */
-    margin-top: 20px; /* Adds space above the button */
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
 }
 
 /* Submit Button */
 .submit-btn {
-    padding: 15px 30px; /* Increased padding for better spacing */
-    font-size: 20px; /* Font size */
-    background-color: #4CAF50;
-    color: #fff;
+    padding: 15px 30px;
+    font-size: 20px;
+    background-color: #2e7d32 !important;
+    color: white !important;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -217,8 +217,25 @@ input::placeholder {
 }
 
 .submit-btn:hover {
-    background-color: #45a049;
+    background-color: #1b5e20 !important;
 }
+
+/* View Records Button */
+.view-records-button {
+    padding: 15px 30px;
+    font-size: 20px;
+    background-color: #2e7d32 !important;
+    color: white !important;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.view-records-button:hover {
+    background-color: #1b5e20 !important;
+}
+
 
 
 /* Responsive Design */
